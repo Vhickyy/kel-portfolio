@@ -1,21 +1,19 @@
 "use client"
-import React, { useEffect } from 'react'
+import React from 'react'
 import {FaFacebook,FaYoutube, FaInstagram} from 'react-icons/fa';
 import { navData } from "@/data/data"
 import {motion} from "framer-motion";
 import Link from 'next/link';
 import usePortfolioContext from '../context//PortfolioContext';
-import {useInView} from "react-intersection-observer";
+import useScroll from './custom/scroll';
 export default function Header() {
   // {threshold:0.2}
-  const {active,changeActive} = usePortfolioContext();
-  const {ref,inView} = useInView({threshold:0.6});
-  
-  useEffect(()=>{
-    if(inView){
-      changeActive("home")
-    }
-  },[inView,active])
+  const {active,changeActive,setClicked} = usePortfolioContext();
+  const {ref} =  useScroll({name:"home",threshold:0.5})
+  const handleClick = (name:string,e:React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    setClicked(name)
+    changeActive(name,e)
+  }
   return (
     <header className='w-[95%] pb-[5rem] md:w-[95%] lg:w-[90%] mx-auto relative z-10' id="home" ref={ref}>
         <div className='h-[17rem] w-[10rem] sm:w-[17rem] bg-blur absolute top-[15%] right-0 -z-10 blur-[7rem] rounded-full'></div>
@@ -23,7 +21,7 @@ export default function Header() {
             <div className='w-[80%] sm:w-[25rem] mx-auto bg-navBlur backdrop-blur rounded-full py-2 px-[1.3rem] flex items-center justify-between shadow-lg'> 
             {navData.map((icon, index)=>{
               return (
-                <Link href={icon.link} onClick={(e)=>changeActive(icon.name,e)} key={index}>
+                <Link href={icon.link} onClick={(e)=>{handleClick(icon.name,e)}} key={index}>
                   <div className={`shadow-inner inset p-2 rounded-full grid place-items-center text-textColor ${icon.name === active ? "border border-primary" : null}` }>
                     
                       {icon.icon}

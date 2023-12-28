@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import {FaEdit, FaTrash} from "react-icons/fa"
 import { useInView } from 'react-intersection-observer';
 import usePortfolioContext from '@/context/PortfolioContext';
+import useScroll from './custom/scroll';
 interface skills {
   mode?: boolean
 }
@@ -57,13 +58,14 @@ const skillset: skill[] = [
   },
 ]
 function Skills({mode}:skills) {
-  const {changeActive} = usePortfolioContext();
-  const {ref,inView} = useInView({threshold:0.4});
-  useEffect(()=>{
-    if(inView){
-      changeActive("skills")
-    }
-  },[inView])
+  // const {changeActive} = usePortfolioContext();
+  const {ref} =  useScroll({name:"skills",threshold:0.9})
+  // const {ref,inView} = useInView({threshold:0.4});
+  // useEffect(()=>{
+  //   if(inView){
+  //     changeActive("skills")
+  //   }
+  // },[inView])
   return (
     <section className={` ${mode ? 'pt-[2rem]' : 'pt-[3rem]'}`} id="skill" ref={ref}>
       <h2 className='font-extrabold text-2xl sm:text-3xl text-textColor text-center'>Area of Expertise</h2>

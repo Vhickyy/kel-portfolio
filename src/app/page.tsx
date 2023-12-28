@@ -3,6 +3,8 @@ import DesktopNav from '@/components/DesktopNav'
 import Header from '@/components/Header'
 import Project from '@/components/Projects'
 import Skills from '@/components/Skills'
+import ThemeButton from '@/components/ThemeButton'
+import Videos from '@/components/Videos'
 import Image from 'next/image'
 import { FaFacebook } from 'react-icons/fa'
 
@@ -17,14 +19,18 @@ export default function Home() {
           <div className='w-[1px] h-[20rem] mx-auto bg-primary'></div>
           </div>
       </section>
-      <div className='lg:w-[95%]'>
+      <section className='lg:w-[95%]'>
         <DesktopNav/>
         <Header/>
         <main className='w-[95%] md:w-[95%] lg:w-[90%] mx-auto'>
          <About/>
          <Skills/>
          <Project/>
+         <Videos/>
         </main>
+      </section>
+      <div className='fixed bottom-8 right-10 md:hidden border-2 border-primary p-3 rounded-[50%] text-primary cursor-pointer z-[1000] bg-[#10091899]'>
+        <ThemeButton/>
       </div>
     </main>
   )

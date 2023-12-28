@@ -5,15 +5,11 @@ import Img from "@/images/aboutImg3.png"
 import {motion} from "framer-motion";
 import {useInView} from "react-intersection-observer";
 import usePortfolioContext from '../context//PortfolioContext';
+import useScroll from './custom/scroll';
 
 function About() {
-  const {changeActive} = usePortfolioContext();
-  const {ref,inView} = useInView({threshold:0.6});
-  useEffect(()=>{
-    if(inView){
-      changeActive("about")
-    }
-  },[inView])
+  const {ref} = useScroll({name:"about",threshold:0.7});
+  
   return (
     <section className='pt-[3rem] pb-[5rem]' id="about" ref={ref}>
       {/* <div className='flex items-center justify-center'> */}

@@ -15,7 +15,6 @@
   --textgray: #71717a;
   --bgGray: #f1f5f9;
   --navBlur: #f5f5f580; */
-  
 }
 .dark{
   --primary: #fee302;
@@ -29,4 +28,9 @@
   --textColor: #ffffff;
   --bgGray: #0f172a;
   --navBlur: #10091880; */
+}
+header span{
+  -webkit-text-stroke: red;
+  -webkit-text-stroke-width: 1px;
+  /* -webkit-text-stroke-color: green; */
 }
