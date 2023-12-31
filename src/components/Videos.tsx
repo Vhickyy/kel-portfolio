@@ -68,6 +68,7 @@ export default function Videos({mode}:Video) {
                   />
               </div>
                <div className='py-6 px-6 bg-bgGray flex flex-col gap-4'>
+                <a href="https://youtu.be/9ZZ0Hn6HRts?si=K35iJw2ur3cxEwZW" target='_blank'>Watch video</a>
                 <h4 className='text-center text-lg md:text-2xl font-bold capitalize'>{video.name}</h4>
                 <p className='text-gray-500'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque perferendis error... nosum mollitia.</p>
                 {/* <button className='bg-primary p-2 text-textColor'><a href="#">Icon</a></button> */}

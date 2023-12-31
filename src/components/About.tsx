@@ -2,13 +2,14 @@
 import Image from 'next/image'
 import React, { useEffect } from 'react'
 import Img from "@/images/aboutImg3.png"
+import Office from "@/images/kel-office.jpg"
 import {motion} from "framer-motion";
 import {useInView} from "react-intersection-observer";
 import usePortfolioContext from '../context//PortfolioContext';
 import useScroll from './custom/scroll';
 
 function About() {
-  const {ref} = useScroll({name:"about",threshold:0.7});
+  const {ref} = useScroll({name:"about",threshold:0.5});
   
   return (
     <section className='pt-[3rem] pb-[5rem]' id="about" ref={ref}>
@@ -16,6 +17,7 @@ function About() {
         {/* <h2 className='font-extrabold text-3xl text-primary'> 01.</h2> */}
         <h2 className='font-extrabold text-2xl sm:text-3xl text-textColor text-center'>About Me</h2>
       {/* </div> */}
+      <Image src={Office} alt='kel-office'  className='w-full h-[15rem] md:h-auto'/>
       <div className='mt-6 flex gap-4 flex-col sm:flex-row-reverse sm:items-center sm:justify-between'>
         <motion.div className='relative w-full h-[20rem] bg-primary sm:w-[35%] rounded-lg overflow-x-hidden'
         // initial={{x:-100}}

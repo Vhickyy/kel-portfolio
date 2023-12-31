@@ -5,7 +5,6 @@ import Link from "next/link";
 import Image from "next/image";
 import Logo from "@/images/kel-logo.png"
 import ThemeButton from "./ThemeButton";
-// 53456346
 const DesktopNav = () => {
   const {active,changeActive,setClicked} = usePortfolioContext();
   const handleClick = (name:string,e:React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
