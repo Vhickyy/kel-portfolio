@@ -1,9 +1,11 @@
 "use client"
 import React, { useState } from 'react'
 import { FaTimes } from 'react-icons/fa'
+import AddReview from './AddReview'
 
 const page = () => {
     const [mode,setMode] = useState("")
+    
   return (
     <main className='w-[90%] max-w-[14000px] mx-auto text-white'>
         <h1>Welcome user, Leave a review for Kelechi</h1>
@@ -35,7 +37,8 @@ const page = () => {
                 </select>
                 <label htmlFor="work" className='block'>Work place:</label>
                 <input type="text" placeholder='work place' id='work' className='text-bgColor p-2'/>
-                <button className='block'>Save</button>
+                {/* <button className='block'>Save</button> */}
+                <AddReview />
             </form>
         </div>}
         {mode == "review" && <div className='fixed inset-0 bg-red-500  grid place-items-center'>

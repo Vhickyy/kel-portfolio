@@ -33,14 +33,13 @@ function Project(mode: exper) {
 //     }
 //   },[inView])
   return (
-    <section className='pt-[3rem] pb-[5rem]' id="project" >
+    <section className='pt-[9rem] pb-[5rem]' id="project" >
       {/* <div className='flex items-center justify-center'> */}
         {/* <h2 className='font-extrabold text-3xl text-primary'> 01.</h2> */}
         <h2 className='font-extrabold text-2xl sm:text-3xl text-textColor text-center'>Projects</h2>
       {/* </div> */}
-      {/* grid gap-8 md:grid-cols-2 */}
-      <aside className='grid gap-6'>
-        <div className=' mt-6 text-gray-500 flex gap-6 overflow-x-clip min-w-full'>
+      <aside className='grid gap-8 pt-[3rem]'>
+        <div className=' text-gray-500 flex gap-6 overflow-x-clip min-w-full'>
           <div className='animate flex gap-6 '>
             {projects.map((pro,index)=>{
                 return (
