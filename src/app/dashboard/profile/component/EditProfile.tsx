@@ -1,18 +1,19 @@
 "use client"
 import usePortfolioContext from '@/context/PortfolioContext'
+import Link from 'next/link'
+import { useSearchParams } from 'next/navigation'
 import React from 'react'
 import { FaTimes } from 'react-icons/fa'
 
 const EditProfile = () => {
-    const {mode,setMode} = usePortfolioContext()
+    const getMode = useSearchParams().get("mode");
 
   return (
     <>
-        {mode == "edit" ? <div className='fixed inset-0 bg-red-500  grid place-items-center text-textColor'>
+        {getMode == "edit-profile" ? <div className='fixed inset-0 bg-red-500  grid place-items-center text-textColor'>
             <form className='bg-bgColor w-[80%] '>
                 <h1>Edit Profile</h1>
-                <FaTimes onClick={()=>setMode("")}/>
-                
+                <Link href="/dashboard/profile"><FaTimes/></Link>
                 <label htmlFor="name" className='block'>Name</label>
                 <input type="text" id="name" value={"sososo"}  className='text-bgColor p-2'/>
                 <label htmlFor="status" className='block'>Status</label>
