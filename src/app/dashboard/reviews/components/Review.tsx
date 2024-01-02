@@ -1,10 +1,7 @@
 import React from 'react'
-import prisma from '../../../../../prisma/db'
+import { getReviews } from '@/utils/actions';
 
-const getReviews = async () => {
-    const reviews = await prisma.review.findMany()
-    return reviews;
-}
+
 const Review = async () => {
     const data = await getReviews()
     console.log(data);
