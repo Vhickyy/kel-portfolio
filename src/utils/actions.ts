@@ -14,7 +14,6 @@ export const addReview = async (formdata: any) => {
             reviewer
         }
     })
-    // revalidatePath("/dashboard/profile")
     redirect("/dashboard/profile")
 }
 

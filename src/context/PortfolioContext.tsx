@@ -7,10 +7,6 @@ type PortfolioProp = {
     theme : boolean
     toggleTheme: ()=>void
     setClicked: (link:string) => void
-    mode: string
-    setMode: Dispatch<SetStateAction<string>>
-    // show: string
-    // setShow: Dispatch<SetStateAction<string>>
 }
 const PortfolioContext = createContext({} as PortfolioProp);
 
@@ -59,18 +55,11 @@ export const PortfolioContextProvider = ({children}: {children: ReactNode}) => {
      }
     useEffect(()=>{
         getTheme()
-        console.log("hu");
-        
     },[])
 
-    useEffect(()=>{
-        setMode("")
-        console.log("hi");
-        
-    },[])
 
     return (
-        <PortfolioContext.Provider value={{active, changeActive,clicked, theme, toggleTheme, setClicked, mode, setMode}}>
+        <PortfolioContext.Provider value={{active, changeActive,clicked, theme, toggleTheme, setClicked}}>
             {children}
         </PortfolioContext.Provider>
     )
