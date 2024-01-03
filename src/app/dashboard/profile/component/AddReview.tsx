@@ -1,14 +1,14 @@
 "use client"
-import usePortfolioContext from '@/context/PortfolioContext'
 import React from 'react'
 import { FaTimes } from 'react-icons/fa'
-import { useFormStatus } from 'react-dom'
+import { useFormStatus, useFormState } from 'react-dom'
 import { addReview } from '@/utils/actions'
 import { useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 
 const Btn = () => {
   const {pending} = useFormStatus();
+  const [state,formAction] = useFormState(addReview,{message:""})
   return(
     <button type='submit' disabled={pending} className='block bg-primary rounded-md py-2 px-8 text-bgColor'>{pending ? "Saving..." : "Save"}</button>
   )
