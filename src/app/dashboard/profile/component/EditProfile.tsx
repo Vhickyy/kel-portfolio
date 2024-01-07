@@ -11,9 +11,11 @@ const EditProfile = () => {
   return (
     <>
         {getMode == "edit-profile" ? <div className='fixed inset-0 bg-red-500  grid place-items-center text-textColor'>
-            <form className='bg-bgColor w-[80%] '>
-                <h1>Edit Profile</h1>
-                <Link href="/dashboard/profile"><FaTimes/></Link>
+            <form className='bg-bgColor w-[80%] sm:w-[30rem] p-8 rounded-md'>
+                <div className='flex justify-between'>
+                    <h1>Edit Profile</h1>
+                    <Link href="/dashboard/profile"><FaTimes/></Link>
+                 </div>
                 <label htmlFor="name" className='block'>Name</label>
                 <input type="text" id="name" value={"sososo"}  className='text-bgColor p-2'/>
                 <label htmlFor="status" className='block'>Status</label>
@@ -25,7 +27,6 @@ const EditProfile = () => {
                 </select>
                 <label htmlFor="work" className='block'>Work place:</label>
                 <input type="text" placeholder='work place' id='work' className='text-bgColor p-2'/>
-                <button>change profile pix</button>
                 <button className='block'>Save</button>
             </form>
         </div> : null}
