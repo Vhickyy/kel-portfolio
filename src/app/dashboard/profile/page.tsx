@@ -29,18 +29,6 @@ const page = () => {
           <p>You haven't given a review</p>
           <Link href={"/dashboard/profile?mode=review"}><button className='px-8 py-2 border border-primary rounded-md text-primary'>Add Review</button></Link>
         </section>
-        {/* <div>
-            <div className='h-10 w-10 bg-primary'></div>
-            <p>Edit photo</p>
-            <p>Name: sososso</p>
-            <div>
-            <Link href={"/dashboard/profile?mode=review"}>Add Review</Link>
-            <Link href={"/dashboard/profile?mode=edit-profile"}>Edit profile</Link>
-        </div>
-        </div>
-        <div>
-            <h1>Your review for kelechi</h1>
-        </div> */}
         <EditProfile/>
         <AddReview />
     </main>
