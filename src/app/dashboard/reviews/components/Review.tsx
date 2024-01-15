@@ -11,7 +11,7 @@ const Review = async () => {
         {data.length ? 
             data.map(data=>{
                 return(
-                    <div className='bg-slate-800 p-4 text-center text-textgray text-sm'>
+                    <div className='bg-slate-800 p-4 text-center text-textgray text-sm' key={data.id}>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias assumenda quasi ipsam. Ex aliquid odit e mollitia. Quod, modi ratione?
                         <button>delete</button>
                         <button>show</button>

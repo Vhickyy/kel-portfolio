@@ -18,7 +18,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${montserrat.className} overflow-x-hidden bg-bgColor`}>
+      <body className={`${montserrat.className} bg-bgColor`}>
         <PortfolioContextProvider>
           {children}
         </PortfolioContextProvider>

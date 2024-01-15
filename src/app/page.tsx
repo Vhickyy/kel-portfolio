@@ -10,7 +10,7 @@ import { FaFacebook } from 'react-icons/fa'
 
 export default function Home() {
   return (
-    <main className='w-[90%] lg:flex max-w-[14000px] mx-auto'>
+    <main className='w-[90%] lg:w-[95%] lg:flex max-w-[1440px] mx-auto'>
       <section className='hidden lg:block lg:w-[5%]'>
           <div className='sticky top-[25%] grid gap-4 items-end justify-center text-textColor'>
           <FaFacebook className="w-[2rem] h-[2rem]"/>

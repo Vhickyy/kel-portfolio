@@ -8,18 +8,20 @@ import Link from 'next/link'
 
 const Btn = () => {
   const {pending} = useFormStatus();
-  const [state,formAction] = useFormState(addReview,{message:""})
   return(
-    <button type='submit' disabled={pending} className='block bg-primary rounded-md py-2 px-8 text-bgColor'>{pending ? "Saving..." : "Save"}</button>
+    <button type='submit' disabled={pending} className='block rounded-md py-2 px-8 border border-primary text-primary'>{pending ? "Saving..." : "Save"}</button>
+    
   )
 }
 
 const AddReview = () => {
     const getMode = useSearchParams().get("mode");
+    const [state,formAction] = useFormState(addReview,{message:""});
   return (
     <>
     {getMode == "review" ? <div className='fixed inset-0 bg-red-500  grid place-items-center'>
-        <form action={addReview} className='bg-bgColor w-[80%] sm:w-[30rem] p-8 rounded-md'>
+        <form action={formAction} className='bg-bgColor w-[90%] sm:w-[30rem] p-8 rounded-md'>
+          {state.message ? `${state.message}` : null}
             <div className='flex justify-between'>
                 <h1>What do you have to say about Kelechi?</h1>
                 <Link href="/dashboard/profile"><FaTimes/></Link>

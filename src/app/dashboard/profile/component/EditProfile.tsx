@@ -11,7 +11,7 @@ const EditProfile = () => {
   return (
     <>
         {getMode == "edit-profile" ? <div className='fixed inset-0 bg-red-500  grid place-items-center text-textColor'>
-            <form className='bg-bgColor w-[80%] sm:w-[30rem] p-8 rounded-md'>
+            <form className='bg-bgColor w-[90%] sm:w-[30rem] p-8 rounded-md'>
                 <div className='flex justify-between'>
                     <h1>Edit Profile</h1>
                     <Link href="/dashboard/profile"><FaTimes/></Link>
