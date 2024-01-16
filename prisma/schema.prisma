@@ -43,11 +43,16 @@ model User {
   email         String?   @unique
   emailVerified DateTime?
   image         String?
+  workplace     String
+  status        String
   accounts      Account[]
+  showReview    Boolean  @default(false)
+  review        Review?
 }
 
 model Review {
   id String @id @default(auto()) @map("_id") @db.ObjectId
-  reviewer String
+  reviewer String @db.ObjectId @unique
   review String
+  user User @relation(fields: [reviewer], references: [id], onDelete: Cascade)
 }
