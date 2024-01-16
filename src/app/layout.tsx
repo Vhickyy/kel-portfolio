@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Inter, Montserrat } from 'next/font/google'
 import './globals.css'
 import { PortfolioContextProvider } from '@/context/PortfolioContext'
+import AuthProvider from '@/context/AuthProvider'
 
 const inter = Inter({ subsets: ['latin'] })
 const montserrat = Montserrat({ subsets: ['latin'] })
@@ -19,9 +20,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${montserrat.className} bg-bgColor`}>
-        <PortfolioContextProvider>
-          {children}
-        </PortfolioContextProvider>
+        <AuthProvider>
+          <PortfolioContextProvider>
+            {children}
+          </PortfolioContextProvider>
+        </AuthProvider>
       </body>
     </html>
   )

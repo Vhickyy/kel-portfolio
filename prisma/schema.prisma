@@ -39,12 +39,12 @@ model Account {
 
 model User {
   id            String    @id @default(auto()) @map("_id") @db.ObjectId
-  name          String?
-  email         String?   @unique
+  name          String
+  email         String   @unique
   emailVerified DateTime?
-  image         String?
-  workplace     String
-  status        String
+  image         String
+  workplace     String    @default("student")
+  status        String    @default("student")
   accounts      Account[]
   showReview    Boolean  @default(false)
   review        Review?
