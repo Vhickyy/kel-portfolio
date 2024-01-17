@@ -61,7 +61,7 @@ export const editProfile = async (prevState:any,formdata: any) => {
             },
             data:{
                 name,
-                company,
+                // company,
                 status
             }
         })
