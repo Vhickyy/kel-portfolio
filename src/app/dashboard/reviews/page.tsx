@@ -6,14 +6,14 @@ import { getReviews } from '@/utils/actions'
 import DeleteBtn from './components/DeleteBtn'
 
 const page = async () => {
-  const data = await getReviews()
+  const data:any = await getReviews()
   // const data: any[] = [1,2,3,4]
   return (
     <main className='w-[90%] max-w-[1440px] mx-auto text-white'>
         {/* fetch users and show if user have dropped any review */}
         <section className='w-[80%] max-w-[60rem]   mx-auto grid md:grid-cols-2 gap-8'>
         {data.length ? 
-            data.map(data=>{
+            data.map((data:any)=>{
                 return(
                     <div className='bg-slate-800 p-4 text-center text-textgray text-sm grid gap-4' key={data.id}>
                         <h2>{data.reviewer}</h2>

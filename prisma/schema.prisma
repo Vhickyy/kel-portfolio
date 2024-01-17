@@ -10,14 +10,6 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-// model User{
-//   id String @id @default(auto()) @map("_id") @db.ObjectId
-//   name String
-//   email String
-//   password String
-//   profile String
-//   company String
-// }
 model Account {
   id                 String  @id @default(auto()) @map("_id") @db.ObjectId
   userId             String  @db.ObjectId
@@ -39,14 +31,15 @@ model Account {
 
 model User {
   id            String    @id @default(auto()) @map("_id") @db.ObjectId
-  name          String
-  email         String   @unique
+  name          String?
+  email         String?   @unique
   emailVerified DateTime?
-  image         String
-  workplace     String    @default("student")
+  image         String?
+  company     String    @default("student")
   status        String    @default("student")
   accounts      Account[]
   showReview    Boolean  @default(false)
+  role          String   @default("user")
   review        Review?
 }
 
