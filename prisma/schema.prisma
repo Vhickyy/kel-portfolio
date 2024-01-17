@@ -35,7 +35,7 @@ model User {
   email         String?   @unique
   emailVerified DateTime?
   image         String?
-  company     String    @default("student")
+  company       String    @default("student")
   status        String    @default("student")
   accounts      Account[]
   showReview    Boolean  @default(false)

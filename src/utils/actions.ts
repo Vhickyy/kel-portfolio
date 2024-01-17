@@ -45,23 +45,23 @@ export const addReview = async (prevState:any,formdata: any) => {
 // edit user profile
 export const editProfile = async (prevState:any,formdata: any) => {
     const name = formdata.get("name");
-    const workplace = formdata.get("workplace");
+    const company = formdata.get("company");
     const status = formdata.get("status");
     const id = formdata.get("id");
     const ProfileSchema = z.object({
         name: z.string().max(50),
-        workplace: z.string().max(15),
+        company: z.string().max(15),
         status: z.string()
     });
     try {
-        ProfileSchema.safeParse({name,workplace,status});
+        ProfileSchema.safeParse({name,company,status});
         await prisma.user.update({
             where:{
                 id
             },
             data:{
                 name,
-                workplace,
+                company,
                 status
             }
         })
