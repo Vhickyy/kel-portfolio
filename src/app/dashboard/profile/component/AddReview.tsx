@@ -15,7 +15,7 @@ const Btn = () => {
   )
 }
 
-const AddReview = ({id}:{id:string}) => {
+const AddReview = ({id}:{id:string | undefined}) => {
     const getMode = useSearchParams().get("mode");
     const [state,formAction] = useFormState(addReview,{message:""});
     
@@ -29,6 +29,7 @@ const AddReview = ({id}:{id:string}) => {
                 <h1>What do you have to say about Kelechi?</h1>
                 <Link href="/dashboard/profile"><FaTimes/></Link>
             </div>
+            <input type="hidden" value={id} name='id' />
             <textarea name="review" id="review" placeholder='Review goes here' className=' w-full resize-none h-[15rem] rounded-md p-2 my-6 text-bgColor'>
             </textarea>
             <Btn/>

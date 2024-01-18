@@ -22,8 +22,9 @@ import { revalidatePath } from "next/cache";
 // add review
 export const addReview = async (prevState:any,formdata: any) => {
     await new Promise(resolve => setTimeout(resolve, 2000))
-    const review = formdata.get("review")
-    const reviewer = "vee"
+    const review = formdata.get("review");
+    const reviewer = formdata.get("id");
+    // const reviewer = "vee"
     const ReviewSchema = z.object({
         review: z.string().min(20).max(40),
         reviewer: z.string()
@@ -36,6 +37,8 @@ export const addReview = async (prevState:any,formdata: any) => {
                 reviewer
             }
         })
+        console.log({review,reviewer});
+        
         return({message:"Review Added Successfully"})
     } catch (error:any) {
         return({message: error.message});
