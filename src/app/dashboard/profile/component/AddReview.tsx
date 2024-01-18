@@ -1,10 +1,11 @@
 "use client"
-import React from 'react'
+import React, { useEffect } from 'react'
 import { FaTimes } from 'react-icons/fa'
 import { useFormStatus, useFormState } from 'react-dom'
 import { addReview } from '@/utils/actions'
 import { useSearchParams } from 'next/navigation'
 import Link from 'next/link'
+import { useSession } from 'next-auth/react'
 
 const Btn = () => {
   const {pending} = useFormStatus();
@@ -14,13 +15,15 @@ const Btn = () => {
   )
 }
 
-const AddReview = () => {
+const AddReview = ({id}:{id:string}) => {
     const getMode = useSearchParams().get("mode");
     const [state,formAction] = useFormState(addReview,{message:""});
+    
   return (
     <>
     {getMode == "review" ? <div className='fixed inset-0 bg-red-500  grid place-items-center'>
         <form action={formAction} className='bg-bgColor w-[90%] sm:w-[30rem] p-8 rounded-md'>
+          {id}
           {state.message ? `${state.message}` : null}
             <div className='flex justify-between'>
                 <h1>What do you have to say about Kelechi?</h1>

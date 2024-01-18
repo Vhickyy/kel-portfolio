@@ -6,19 +6,19 @@ import { revalidatePath } from "next/cache";
 
 
 // get user and their review
-export const getUser = async () => {
-    try {
-        const user = await prisma.user.findUnique({
-            where:{
-                email: ""
-            }
-        })
-        return user;
-    } catch (error) {
-        console.log(error);
-        return error
-    }
-}
+// export const getUser = async () => {
+//     try {
+//         const user = await prisma.user.findUnique({
+//             where:{
+//                 email: ""
+//             }
+//         })
+//         return user;
+//     } catch (error) {
+//         console.log(error);
+//         return error
+//     }
+// }
 // add review
 export const addReview = async (prevState:any,formdata: any) => {
     await new Promise(resolve => setTimeout(resolve, 2000))
@@ -61,7 +61,7 @@ export const editProfile = async (prevState:any,formdata: any) => {
             },
             data:{
                 name,
-                // company,
+                company,
                 status
             }
         })
@@ -74,10 +74,11 @@ export const editProfile = async (prevState:any,formdata: any) => {
 // get review by owner
 export const getReviews = async () => {
     try {
-        const reviews = await prisma.review.findMany()
+        const reviews = await prisma.review.findMany();
+        console.log(reviews);
         return reviews;
-    } catch (error) {
-        console.log(error);
+    } catch (error:any) {
+        console.log(error.message);
         return error
     }
 }

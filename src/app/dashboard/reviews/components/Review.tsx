@@ -3,8 +3,8 @@ import { getReviews } from '@/utils/actions';
 
 
 const Review = async () => {
-    const data:any = await getReviews()
-    console.log(data);
+  const data:any = await getReviews()
+  console.log(data);
     
   return (
     <section>
