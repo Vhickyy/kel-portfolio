@@ -17,15 +17,13 @@ export default function Header() {
   return (
     <header className='w-[95%] pb-[5rem] md:w-[95%] lg:w-[90%] mx-auto relative z-10' id="home" ref={ref}>
         <div className='h-[17rem] w-[10rem] sm:w-[17rem] bg-blur absolute top-[15%] right-0 -z-10 blur-[7rem] rounded-full'></div>
-        <nav className='w-full h-10 fixed left-0 top-4 md:hidden'>
-            <div className='w-[80%] sm:w-[25rem] mx-auto bg-navBlur backdrop-blur rounded-full py-2 px-[1.3rem] flex items-center justify-between shadow-lg'> 
+        <nav className='w-full h-10 fixed left-0 top-4 lg:hidden'>
+            <div className='w-[85%] sm:w-[30rem] mx-auto bg-navBlur backdrop-blur rounded-full py-2 px-[1.3rem] flex items-center justify-between shadow-lg'> 
             {navData.map((icon, index)=>{
               return (
                 <Link href={icon.link} onClick={(e)=>{handleClick(icon.name,e)}} key={index}>
-                  <div className={`shadow-inner inset p-2 rounded-full grid place-items-center text-textColor ${icon.name === active ? "border border-primary" : null}` }>
-                    
-                      {icon.icon}
-                      {/* <FaYoutube className="h-[2.5rem] w-[2.5rem]"/> */}
+                  <div className={`shadow-inner inset p-2 rounded-full grid place-items-center text-textColor ${icon.name === active ? "border border-primary" : null}` }> 
+                      <icon.icon className='h-6 w-6'/>
                   </div>
                 </Link>
               )

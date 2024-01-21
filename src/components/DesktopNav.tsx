@@ -12,7 +12,7 @@ const DesktopNav = () => {
     changeActive(name,e,true)
   }
   return (
-    <nav className='hidden md:flex sticky top-0 w-[95%] lg:w-[90%] mx-auto justify-between items-center pt-8 z-20 text-textgray bg-bgColor'>
+    <nav className='hidden lg:flex sticky top-0 w-[95%] lg:w-[90%] mx-auto justify-between items-center pt-8 z-20 text-textgray bg-bgColor'>
       {/* <div className='p-4 bg-primary rounded-full text-accent'>KO</div> */}
       <Image src={Logo} alt="kel-logo" />
       {navData.map((nav,index)=>{

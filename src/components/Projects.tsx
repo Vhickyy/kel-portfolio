@@ -3,9 +3,6 @@ import Image from 'next/image'
 import React from 'react'
 import Img from "@/images/pro2.jpg";
 import Img2 from "@/images/pro3.jpeg"
-// import {motion} from "framer-motion";
-// import {useInView} from "react-intersection-observer";
-// import useNavContext from '../context/NavContext';
 const projects = [
     {
         name: "magazine"
@@ -21,17 +18,9 @@ const projects = [
     },
 ]
 
-interface exper {
-  mode?: boolean
-}
-function Project(mode: exper) {
-//   const {changeActive} = useNavContext();
-//   const {ref,inView} = useInView({threshold:0.6});
-//   useEffect(()=>{
-//     if(inView){
-//       changeActive("project")
-//     }
-//   },[inView])
+
+function Project() {
+
   return (
     <section className='pt-[9rem] pb-[5rem]' id="project" >
       {/* <div className='flex items-center justify-center'> */}
@@ -94,12 +83,9 @@ function Project(mode: exper) {
             )
         })}
       </div> */}
-      {!mode && <div className="w-full flex justify-center items-center">
+      <div className="w-full flex justify-center items-center">
         <button className='mx-auto mt-6 text-md sm:text-lg tracking-wide border-primary border-2 py-2 px-4 rounded-lg text-primary font-medium  hover:transform hover:scale-105 hover:duration-200 '>View More Videos</button>
-      </div>}
-      {!mode && <div className="w-full flex justify-center items-center">
-        <button className='mx-auto mt-6 text-md sm:text-lg tracking-wide border-primary border-2 py-2 px-4 rounded-lg text-primary font-medium  hover:transform hover:scale-105 hover:duration-200 '>View More Videos</button>
-      </div>}
+      </div>
     </section>
   )
 }

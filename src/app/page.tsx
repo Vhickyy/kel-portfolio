@@ -2,6 +2,7 @@ import About from '@/components/About'
 import DesktopNav from '@/components/DesktopNav'
 import Header from '@/components/Header'
 import Project from '@/components/Projects'
+import Reviews from '@/components/Reviews'
 import Skills from '@/components/Skills'
 import ThemeButton from '@/components/ThemeButton'
 import Videos from '@/components/Videos'
@@ -27,6 +28,7 @@ export default function Home() {
          <Skills/>
          <Project/>
          <Videos/>
+         <Reviews/>
         </main>
       </section>
       <div className='fixed bottom-8 right-10 md:hidden border-2 border-primary p-3 rounded-[50%] text-primary cursor-pointer z-[1000] bg-[#10091899]'>
