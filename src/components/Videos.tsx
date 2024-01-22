@@ -54,7 +54,7 @@ export default function Videos({mode}:Video) {
   return (
     <section className={`w-full ${mode ? "py-[2rem]" : "pt-[3rem] pb-[4rem]"}`} id="video" ref={ref}>
         <h2 className='font-extrabold text-2xl sm:text-3xl text-textColor text-center'>Videos</h2>
-      <div className=' grid gap-x-6 gap-y-8 mt-8 md:grid-cols-2 '>
+      <div className=' grid gap-x-12 gap-y-8 mt-8 md:grid-cols-2 '>
         {videos.map((video,index)=>{
           return (
             <div key={index} className='rounded-lg overflow-hidden  text-textColor relative shadow-md'>

@@ -43,7 +43,7 @@ export const navData:nav[] = [
 ]
 
 
-const reviews = [
+export const reviews = [
     {
         name: "Jacinta Obi",
         review: "Kelechi is a skilled, creative Canva Graphic Designer who effortlessly blends inspiration with careful attention to detail to produce a compelling design. He creates masterpieces that leave a lasting impression, and his ability to connect with customers and bring their ideas and vision to life is outstanding. I've hired him several times for a couple of jobs and also taken his courses, and he always delivers. I recommend him any day, any time."

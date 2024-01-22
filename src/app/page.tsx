@@ -12,12 +12,12 @@ import { FaFacebook } from 'react-icons/fa'
 export default function Home() {
   return (
     <main className='w-[90%] lg:w-[95%] lg:flex max-w-[1440px] mx-auto'>
-      <section className='hidden lg:block lg:w-[5%]'>
-          <div className='sticky top-[25%] grid gap-4 items-end justify-center text-textColor'>
-          <FaFacebook className="w-[2rem] h-[2rem]"/>
-          <FaFacebook className="w-[2rem] h-[2rem]"/>
-          <FaFacebook className="w-[2rem] h-[2rem]"/>
-          <div className='w-[1px] h-[20rem] mx-auto bg-primary'></div>
+      <section className='hidden lg:block lg:w-[5%] min-h-screen'>
+          <div className='sticky top-[25%] grid gap-4 items-end justify-center text-textColor overflow-y-clip'>
+              <FaFacebook className="w-[2rem] h-[2rem]"/>
+              <FaFacebook className="w-[2rem] h-[2rem]"/>
+              <FaFacebook className="w-[2rem] h-[2rem]"/>
+              <div className='w-[1px] h-[18rem] mx-auto bg-primary'></div>
           </div>
       </section>
       <section className='lg:w-[95%]'>
@@ -31,7 +31,7 @@ export default function Home() {
          <Reviews/>
         </main>
       </section>
-      <div className='fixed bottom-8 right-10 md:hidden border-2 border-primary p-3 rounded-[50%] text-primary cursor-pointer z-[1000] bg-[#10091899]'>
+      <div className='fixed bottom-8 right-10 lg:hidden border-2 border-primary p-3 rounded-[50%] text-primary cursor-pointer z-[1000] bg-[#10091899]'>
         <ThemeButton/>
       </div>
     </main>
