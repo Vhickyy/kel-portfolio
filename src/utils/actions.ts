@@ -15,11 +15,10 @@ cloudinary.config({
 })
 
 // add Project
-export const addProject = async (prevState:{message:string},formdata: FormData) => {
+export const addProject = async (_prevState:{message:string},formdata: FormData) => {
     const file = formdata.get("upload") as File;
     const category = formdata.get("category") as string;
     if(!file.type.includes("image")){
-        console.log("here");
         return {message:"Not an image, upload an image less than 1mb"}
     }
     if(!category){
