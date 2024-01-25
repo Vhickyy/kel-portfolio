@@ -36,7 +36,7 @@ model User {
   accounts      Account[]
   role          String   @default("user")
   // project Project[]
-  video Video[]
+  // video Video[]
 }
 
 model Project {
@@ -52,9 +52,10 @@ model Video {
   id String  @id @default(auto()) @map("_id") @db.ObjectId
   publicId String
   secureUrl String
+  description String
+  title String
   link String
-  detail String
   show Boolean @default(false)
-  userId String @db.ObjectId
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  // userId String @db.ObjectId
+  // user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 }

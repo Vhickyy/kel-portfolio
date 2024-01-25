@@ -3,7 +3,7 @@ import { reviews } from "@/data/data"
 import useScroll from "./custom/scroll";
 
 const Reviews = () => {
-  const {ref} =  useScroll({name:"review",threshold:0.3});
+  const {ref} =  useScroll({name:"reviews",threshold:0.5});
   return (
     <section ref={ref} id="review">
       <h2 className='font-extrabold text-2xl sm:text-3xl text-textColor text-center'>Reviews</h2>

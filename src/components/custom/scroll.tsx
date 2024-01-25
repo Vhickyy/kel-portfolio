@@ -6,17 +6,14 @@ import { useInView } from 'react-intersection-observer';
 const useScroll = ({name,threshold}:{name:string,threshold:number}) => {
   const {changeActive, clicked, setClicked} = usePortfolioContext();
   const {ref,inView} = useInView({threshold});
-
   useEffect(()=>{
     if(inView && !clicked){
       changeActive(name)
-      console.log("hu");
     }
     
     if(inView && name == clicked){
       console.log(clicked,name, name == clicked);
-      setClicked("")
-      console.log("hi");
+      setClicked("");
     }
   },[inView, clicked])
 

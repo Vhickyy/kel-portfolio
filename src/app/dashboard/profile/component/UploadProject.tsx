@@ -12,6 +12,7 @@ const UploadProject = () => {
     const [uploadMsg, FormUpload] = useFormState(addProject,{message:""})
     return (
     <form action={FormUpload}>
+        {uploadMsg ? <p>{uploadMsg.message}</p> : null}
         <div>
             <label htmlFor="upload" className='block'>upload file</label>
             <input type="file" name='upload' id='upload'/>

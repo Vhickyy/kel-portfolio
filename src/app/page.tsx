@@ -1,6 +1,7 @@
 import About from '@/components/About'
 import DesktopNav from '@/components/DesktopNav'
 import Header from '@/components/Header'
+import MainPeoject from '@/components/MainPeoject'
 import Project from '@/components/Projects'
 import Reviews from '@/components/Reviews'
 import Skills from '@/components/Skills'
@@ -26,7 +27,7 @@ export default function Home() {
         <main className='w-[95%] md:w-[95%] lg:w-[90%] mx-auto'>
          <About/>
          <Skills/>
-         <Project/>
+         <MainPeoject/>
          <Videos/>
          <Reviews/>
         </main>

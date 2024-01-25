@@ -7,6 +7,7 @@ import os from "os";
 import fs from "fs/promises"
 import {v4 as uuidv4} from "uuid";
 import path from "path";
+import { object } from "zod";
 
 cloudinary.config({
     cloud_name: process.env.CLOUD_NAME,
@@ -15,7 +16,7 @@ cloudinary.config({
 })
 
 // add Project
-export const addProject = async (_prevState:{message:string},formdata: FormData) => {
+export const addProject = async (prevState:{message:string},formdata: FormData) => {
     const file = formdata.get("upload") as File;
     const category = formdata.get("category") as string;
     if(!file.type.includes("image")){
@@ -39,19 +40,20 @@ export const addProject = async (_prevState:{message:string},formdata: FormData)
                 secureUrl: res.secure_url,
                 category: category
             }
-        })
-        console.log(photo);
-        return {message:photo}
+        });
+        revalidatePath("/dashboard.profile")
+        formdata.set("upload","");
+        formdata.set("catrgory","");
+        return {message: "success"}
     } catch (error:any) {
         return {message :error.message}
-    }
+    } 
 }
 
 // get projects
 export const getProjects = async () => {
     try {
         const projects = await prisma.project.findMany();
-        console.log(projects);
         return projects;
     } catch (error:any) {
         console.log(error);
@@ -62,10 +64,91 @@ export const getProjects = async () => {
 }
 
 // delete projects
-export const deleteProjects = async (prevState:any,formData:any) => {
+export const deleteProject = async (prevState:any,formData:FormData) => {
+    const id = formData.get("id") as string;
+    const publicId = formData.get("publicId") as string;
+    console.log(id,publicId);
+    
+    try {
+        const deleteFromCloud =  cloudinary.uploader.destroy(publicId)
+        const deleteproject = prisma.project.delete({
+            where:{
+                id
+            }
+        });
+        await Promise.all([deleteproject,deleteFromCloud]);
+        revalidatePath("/dashboard/")
+        return {message:"deleted successfully"}
+    } catch (error:any) {
+        console.log(error);
+        console.log("hi");
+        return {error:error.message}
+    }
+}
+
+// add Video
+export const addVideo = async (_prevState:{message:string},formdata: FormData) => {
+    const file = formdata.get("upload") as File;
+    const title = formdata.get("title") as string;
+    const link = formdata.get("link") as string;
+    const description = formdata.get("description") as string;
+    if(!file.type.includes("image")){
+        return {message:"Not an image, upload an image less than 1mb"}
+    }
+    if(!title || !description || !link){
+        return {message:"Provide all field"}
+    }
+    const arrayBuffer = await file.arrayBuffer();
+    const buffer = Buffer.from(arrayBuffer);
+    const filename = `${uuidv4()}.${file.type.split("/")[1]}`;
+    const tempDir = os.tmpdir();
+    const uploadDir = path.join(tempDir, `/${filename}`);
+    fs.writeFile(uploadDir,buffer)
+    const res = await cloudinary.uploader.upload(uploadDir,{folder: "kel-portfolio"});
+    fs.unlink(uploadDir);
+    try {
+        const video = await prisma.video.create({
+            data:{
+                publicId: res.public_id,
+                secureUrl: res.secure_url,
+                description: description,
+                title: title,
+                link: link
+            }
+        })
+        console.log(video);
+        revalidatePath("/dashboard.profile")
+        formdata.set("upload","");
+        formdata.set("catrgory","");
+        return {message: "success"}
+    } catch (error:any) {
+        return {message :error.message}
+    } 
+}
+
+// get Videos
+export const getVideos = async () => {
+    try {
+        const videos = await prisma.video.findMany();
+        console.log(videos);
+        return videos;
+    } catch (error:any) {
+        console.log(error);
+        console.log("hi");
+        
+        return error
+    }
+}
+
+// delete video
+export const deleteVideo = async (prevState:any,formData:any) => {
     const {id} = formData.get("id");
     try {
-        const projects = await prisma.project.findMany();
+        const projects = await prisma.project.delete({
+            where:{
+                id
+            }
+        });
         console.log(projects);
         return projects;
     } catch (error:any) {
@@ -76,22 +159,9 @@ export const deleteProjects = async (prevState:any,formData:any) => {
     }
 }
 
-// add Video
-export const addVideo = async (prevState:any,formdata: any) => {
-    const img = formdata.get("img");
-    const category = formdata.get("link");
-    const title = formdata.get("title");
-    const detail = formdata.get("detail");
-    try {
-        return {message:""}
-    } catch (error) {
-        return {message:""}
-    }
-}
-
-
 // NESTJS
 // ANGULARJS
 // REACT NATIVE
 // GRAPHQL
 // RUST
+// DSA
