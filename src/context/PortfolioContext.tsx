@@ -14,9 +14,11 @@ export const PortfolioContextProvider = ({children}: {children: ReactNode}) => {
     const [active,setActive] = useState("home");
     const [clicked, setClicked] = useState("")
     const [theme,setTheme] = useState(false);
-    const [mode,setMode] = useState("")
-    // const [show, setShow] = useState("review")
+    const [loaded,setLoaded] = useState(false)
     
+    useEffect(()=>{
+        setLoaded(true)
+    },[])
     // nav
     const changeActive = (active:string,e?:React.MouseEvent<HTMLAnchorElement, MouseEvent>,desktop?:boolean) => {
         e?.preventDefault();
@@ -57,7 +59,13 @@ export const PortfolioContextProvider = ({children}: {children: ReactNode}) => {
         getTheme()
     },[])
 
-
+    if(!loaded){
+        return (
+            <div className="loading ">
+                <h1 className="text-red-600">loading</h1>
+            </div>
+        )
+    }
     return (
         <PortfolioContext.Provider value={{active, changeActive,clicked, theme, toggleTheme, setClicked}}>
             {children}

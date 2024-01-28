@@ -1,5 +1,5 @@
 "use client"
-import { addProject } from "@/utils/actions"
+import { addVideo } from "@/utils/actions"
 import { useFormState,useFormStatus } from "react-dom"
 const UploadBtn = () => {
     const {pending} = useFormStatus()
@@ -9,10 +9,10 @@ const UploadBtn = () => {
 }
 
 const UploadVideo = () => {
-const [uploadMsg, FormUpload] = useFormState(addProject,{message:""})
+const [uploadMsg, FormUpload] = useFormState(addVideo,{message:""})
   return (
     <form action={FormUpload}>
-        {/* {uploadMsg ? <p>{uploadMsg.message}</p> : null} */}
+        {uploadMsg ? <p>{uploadMsg.message}</p> : null}
         <div>
             <label htmlFor="upload" className='block'>Upload Video</label>
             <input type="file" name='upload' id='upload'/>

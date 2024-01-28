@@ -59,7 +59,7 @@ function Skills() {
       <div className='flex flex-wrap gap-x-4 gap-y-4 md:gap-y-6  justify-between items-center mt-[4rem] text-textgray'>
         {skillset.map((skill,index)=>{
           return (
-            <div className='group  bg-bgColor text-inverse  rounded-lg text-center grow shadow-lg border-2 border-primary py-8 px-2 relative grid items-center' key={index}>
+            <div className='group  bg-bgColor text-inverse  rounded-lg text-center grow shadow-lg border-2 border-primary py-6 px-4 relative grid items-center' key={index}>
               <h4>{skill.skill}</h4>
               <div className="absolute bottom-0 left-0 right-0 bg-primary h-0 group-hover:h-[10%] transition-all duration-200">
               </div>

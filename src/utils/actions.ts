@@ -56,9 +56,9 @@ export const getProjects = async () => {
         const projects = await prisma.project.findMany();
         return projects;
     } catch (error:any) {
-        console.log(error);
-        console.log("hi");
-        
+        // console.log(error);
+        // console.log("hi");
+        // return  {projects:"An error occurred"};
         return error
     }
 }

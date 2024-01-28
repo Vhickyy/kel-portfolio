@@ -1,13 +1,11 @@
 import About from '@/components/About'
 import DesktopNav from '@/components/DesktopNav'
 import Header from '@/components/Header'
-import MainPeoject from '@/components/MainPeoject'
-import Project from '@/components/Projects'
+import MainProject from '@/components/MainProject'
+import MainVideo from '@/components/MainVideo'
 import Reviews from '@/components/Reviews'
 import Skills from '@/components/Skills'
 import ThemeButton from '@/components/ThemeButton'
-import Videos from '@/components/Videos'
-import Image from 'next/image'
 import { FaFacebook } from 'react-icons/fa'
 
 export default function Home() {
@@ -27,8 +25,8 @@ export default function Home() {
         <main className='w-[95%] md:w-[95%] lg:w-[90%] mx-auto'>
          <About/>
          <Skills/>
-         <MainPeoject/>
-         <Videos/>
+         <MainProject/>
+         <MainVideo/>
          <Reviews/>
         </main>
       </section>

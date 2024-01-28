@@ -17,8 +17,8 @@ const DisplayProject = ({projects}:{projects: Project[]}) => {
     <div className='grid gap-6 md: grid-cols-2 lg:grid-cols-3'>
         {projects.length ? projects.map(project=>{
           return(
-            <div>
             <div key={project.id}>
+            <div >
               <img src={project.secureUrl} alt={project.category} />
               <p>{project.category}</p>
             </div>

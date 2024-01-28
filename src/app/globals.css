@@ -34,18 +34,49 @@
   --bgGray: #0f172a;
   --navBlur: #10091880; */
 }
-header span{
-  -webkit-text-stroke: red;
-  -webkit-text-stroke-width: 1px;
+/* header span{
+  background-image: linear-gradient(var(--primary), var(--primary));
+  background-repeat: no-repeat;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--primary);
+  -webkit-background-clip: text;
+  background-position: -450px 0;
+} */
+.text{
+  color: var(--bgColor);
+  position: relative;
+  -webkit-text-stroke: 2px var(--primary);
+  /* -webkit-text-stroke-width: 1px ; */
   /* -webkit-text-stroke-color: green; */
 }
+
+.text::before{
+  content: "Graphic Designer.";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 0%;
+  height: 100%;
+  color: var(--primary);
+  -webkit-text-stroke: 0 var(--primary);
+  border-right: 2px solid var(--primary);
+  overflow: hidden;
+  animation: animateText 6s linear infinite;
+}
+
 
 .animate{
   animation: infiniteScroll 30s linear infinite;
 }
 .animate2{
   animation: infiniteScroll2 30s linear infinite;
-  
+}
+
+.loading{
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+  background-color: pink;
 }
 @keyframes infiniteScroll {
   0%{
@@ -62,4 +93,8 @@ header span{
   100%{
       transform: translateX(0%);
   }
+}
+
+@keyframes animateText {
+  
 }

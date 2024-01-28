@@ -38,7 +38,10 @@ export default function Header() {
             <p className="text-primary text-lg">Hi, my name is</p>
             <h1 className="text-textColor text-3xl font-extrabold mt-6 tracking-wide md:text-5xl leading-normal md:leading-normal ">Kelechi Augustine Okorie
             <br/>
-            - <span className='text-primary'>Graphic Designer.</span></h1>
+            <div className='flex gap-4'>
+            - <p className='text'>Graphic Designer.</p>
+            </div>
+           </h1>
             <p className='text-textgray leading-loose mt-6 lg:w-[40rem] tracking-wider'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque, aut quisquam. Esse doloribus. Esse doloribus.</p>
         </motion.div>
         <motion.div
