@@ -3,7 +3,7 @@ import NextAuth, { NextAuthOptions } from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 import prisma from "../../../../../prisma/db";
 
-export const authOptions : NextAuthOptions = {
+const authOptions : NextAuthOptions = {
   session: {
     strategy: "jwt",
   },
