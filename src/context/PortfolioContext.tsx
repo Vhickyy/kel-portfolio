@@ -17,7 +17,9 @@ export const PortfolioContextProvider = ({children}: {children: ReactNode}) => {
     const [loaded,setLoaded] = useState(false)
     
     useEffect(()=>{
-        setLoaded(true)
+        setTimeout(()=>{
+            setLoaded(true)
+        },15000)
     },[])
     // nav
     const changeActive = (active:string,e?:React.MouseEvent<HTMLAnchorElement, MouseEvent>,desktop?:boolean) => {
@@ -62,7 +64,18 @@ export const PortfolioContextProvider = ({children}: {children: ReactNode}) => {
     if(!loaded){
         return (
             <div className="loading ">
-                <h1 className="text-red-600">loading</h1>
+                {/* <h1 className="text-red-600">loading</h1> */}
+                {/* <div className="flex flex-col gap-2">
+                    <div className="flex gap-2">
+                        <div className="w-6 rounded h-6 bg-primary"></div>
+                        <div className="w-6 rounded h-6 bg-primary"></div>
+                    </div>
+                    <div className="flex gap-2">
+                        <div className="w-6 rounded h-6 bg-primary"></div>
+                        <div className="w-6 rounded h-6 bg-primary"></div>
+                    </div>
+                </div> */}
+                <p className="text-primary">Canva Made Easy Man!</p>
             </div>
         )
     }

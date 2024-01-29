@@ -76,7 +76,7 @@
   min-height: 100dvh;
   display: grid;
   place-items: center;
-  background-color: pink;
+  background-color: #100918;
 }
 @keyframes infiniteScroll {
   0%{

@@ -24,7 +24,7 @@ const DisplayProject = ({projects}:{projects: Project[]}) => {
             return(
               <div key={project.id}>
               <div className='rounded-t-lg overflow-clip'>
-                <Image src={project.secureUrl} alt={project.category} width={350} height={350} className='w-full'/>
+                <Image src={project.secureUrl} alt={project.category} width={350} height={350} className='w-full h-[20rem]'/>
                 <div className='flex justify-between items-center pt-4'>
                   <p>{project.category}</p>
                   <form action={formDelete}>
