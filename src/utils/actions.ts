@@ -34,7 +34,8 @@ export const addProject = async (prevState:{message:string},formdata: FormData) 
                 category: category
             }
         });
-        revalidatePath("/dashboard.profile")
+        revalidatePath("/dashboard/profile")
+        revalidatePath("/e")
         formdata.set("upload","");
         formdata.set("catrgory","");
         return {message: "success"}
