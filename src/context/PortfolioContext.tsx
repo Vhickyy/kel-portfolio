@@ -1,5 +1,8 @@
 "use client"
+import { reviews } from "@/data/data";
 import { Dispatch, ReactNode, SetStateAction, createContext, useContext, useEffect, useState } from "react";
+import { Pagination } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
 type PortfolioProp = {
     active : string
     changeActive: (active:string,e?:React.MouseEvent<HTMLAnchorElement, MouseEvent>,desktop?:boolean) => void
@@ -19,7 +22,7 @@ export const PortfolioContextProvider = ({children}: {children: ReactNode}) => {
     useEffect(()=>{
         setTimeout(()=>{
             setLoaded(true)
-        },15000)
+        },2000)
     },[])
     // nav
     const changeActive = (active:string,e?:React.MouseEvent<HTMLAnchorElement, MouseEvent>,desktop?:boolean) => {
@@ -63,7 +66,7 @@ export const PortfolioContextProvider = ({children}: {children: ReactNode}) => {
 
     if(!loaded){
         return (
-            <div className="loading ">
+          <div className="loading ">
                 {/* <h1 className="text-red-600">loading</h1> */}
                 {/* <div className="flex flex-col gap-2">
                     <div className="flex gap-2">
@@ -76,9 +79,39 @@ export const PortfolioContextProvider = ({children}: {children: ReactNode}) => {
                     </div>
                 </div> */}
                 <p className="text-primary">Canva Made Easy Man!</p>
-            </div>
+             </div>
+            
         )
     }
+    // if(!loaded){
+    //     return(
+    //         <Swiper
+    //             pagination={{clickable:true}}
+    //             direction={"horizontal"}
+    //             loop={true}
+    //             slidesPerView={1.7}
+    //             spaceBetween={40}
+    //             modules={[Pagination]}
+    //             className="text-textColor bg-green-400"
+    //             >
+    //                 {reviews.map((review,index)=>{
+    //                 return (
+    //                     <SwiperSlide className="bg-blue-600" key={index}>
+    //                     <div className="text-center" >
+    //                         <h1 className="text-textColor font-semibold text-xl">{review.name}</h1>
+    //                         <p className="mt-6 ">{review.review}</p>
+    //                     </div>
+    //                     </SwiperSlide>
+    //                 )
+    //                 })}
+    //                 <SwiperSlide>1</SwiperSlide>
+    //                 <SwiperSlide>1</SwiperSlide>
+    //                 <SwiperSlide>1</SwiperSlide>
+        
+    //   </Swiper>
+    //     )
+    // }
+
     return (
         <PortfolioContext.Provider value={{active, changeActive,clicked, theme, toggleTheme, setClicked}}>
             {children}

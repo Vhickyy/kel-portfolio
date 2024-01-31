@@ -1,6 +1,6 @@
 "use server"
 import prisma from "../../prisma/db";
-import { revalidatePath } from "next/cache";
+import { revalidatePath, revalidateTag } from "next/cache";
 import { v2 as cloudinary } from "cloudinary";
 import formatImage from "./formatImage";
 
@@ -107,6 +107,7 @@ export const addVideo = async (_prevState:{message:string},formdata: FormData) =
         })
         revalidatePath("/dashboard/video")
         revalidatePath("/")
+        // revalidateTag("10")
         formdata.set("upload","");
         formdata.set("catrgory","");
         return {message: "success"}

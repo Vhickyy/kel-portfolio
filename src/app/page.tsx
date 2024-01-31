@@ -8,6 +8,7 @@ import Skills from '@/components/Skills'
 import ThemeButton from '@/components/ThemeButton'
 import { FaFacebook } from 'react-icons/fa'
 
+export const revalidate = 0
 export default function Home() {
   return (
     <main className='w-[90%] lg:w-[95%] lg:flex max-w-[1440px] mx-auto'>

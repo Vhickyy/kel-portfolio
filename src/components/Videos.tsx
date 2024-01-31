@@ -41,8 +41,8 @@ export default function Videos({videos}:{videos:Video[]}) {
       <div className=' grid gap-x-12 gap-y-8 mt-8 md:grid-cols-2 '>
         {videos.map((video,index)=>{
           return (
-            <div key={index} className='rounded-lg overflow-hidden  text-textColor relative shadow-md'>
-              <div className="relative">
+            <div key={index} className={`rounded-lg overflow-hidden  text-textColor shadow-md ${index % 2 == 0 ? "hover:-skew-x-3 " : "hover:skew-x-3"} duration-200`}>
+              <div className="">
                 <Image
                 alt="youube video"
                 src={video.secureUrl}

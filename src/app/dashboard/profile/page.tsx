@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { cache } from 'react'
 import UploadProject from './component/UploadProject'
 import { getProjects } from '@/utils/actions'
 import { Project } from '@prisma/client';
 import DisplayProject from './component/DisplayProject';
+
+// const caches = cache)
+export const revalidate = 0
 
 const page = async () => {
   const projects: Project[] = await getProjects();
