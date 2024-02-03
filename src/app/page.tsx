@@ -1,4 +1,5 @@
 import About from '@/components/About'
+import Contact from '@/components/Contact'
 import DesktopNav from '@/components/DesktopNav'
 import Header from '@/components/Header'
 import MainProject from '@/components/MainProject'
@@ -8,7 +9,7 @@ import Skills from '@/components/Skills'
 import ThemeButton from '@/components/ThemeButton'
 import { FaFacebook } from 'react-icons/fa'
 
-export const revalidate = 0
+
 export default function Home() {
   return (
     <main className='w-[90%] lg:w-[95%] lg:flex max-w-[1440px] mx-auto'>
@@ -29,6 +30,7 @@ export default function Home() {
          <MainProject/>
          <MainVideo/>
          <Reviews/>
+         <Contact/>
         </main>
       </section>
       <div className='fixed bottom-8 right-10 lg:hidden border-2 border-primary p-3 rounded-[50%] text-primary cursor-pointer z-[1000] bg-[#10091899]'>

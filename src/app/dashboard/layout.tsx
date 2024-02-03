@@ -2,6 +2,7 @@
 import { PortfolioContextProvider } from '@/context/PortfolioContext'
 import AuthProvider from '@/context/AuthProvider'
 import ThemeButton from '@/components/ThemeButton'
+import Link from 'next/link'
 
 
 
@@ -13,7 +14,7 @@ export default function RootLayout({
   return (
     <main>
         <header className='flex justify-between w-[90%] lg:w-[95%] max-w-[1440px] mx-auto py-3 text-textColor'>
-            <p>Home</p>
+            <Link href={"/"}>Home</Link>
             <div className='flex gap-4 items-center'>
                 <ThemeButton/>
                 <button className='bg-primary p-2 rounded-md text-black'>Log out</button>
