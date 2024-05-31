@@ -3,6 +3,8 @@ export default withAuth({
   callbacks: {
     authorized: async ({ req, token }) => {
       if (req.nextUrl.pathname.startsWith("/dashboard")){
+        console.log("hi");
+        
         return token?.role === "owner";
       } 
       return !!token;

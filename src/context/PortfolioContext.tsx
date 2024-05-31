@@ -83,34 +83,6 @@ export const PortfolioContextProvider = ({children}: {children: ReactNode}) => {
             
         )
     }
-    // if(!loaded){
-    //     return(
-    //         <Swiper
-    //             pagination={{clickable:true}}
-    //             direction={"horizontal"}
-    //             loop={true}
-    //             slidesPerView={1.7}
-    //             spaceBetween={40}
-    //             modules={[Pagination]}
-    //             className="text-textColor bg-green-400"
-    //             >
-    //                 {reviews.map((review,index)=>{
-    //                 return (
-    //                     <SwiperSlide className="bg-blue-600" key={index}>
-    //                     <div className="text-center" >
-    //                         <h1 className="text-textColor font-semibold text-xl">{review.name}</h1>
-    //                         <p className="mt-6 ">{review.review}</p>
-    //                     </div>
-    //                     </SwiperSlide>
-    //                 )
-    //                 })}
-    //                 <SwiperSlide>1</SwiperSlide>
-    //                 <SwiperSlide>1</SwiperSlide>
-    //                 <SwiperSlide>1</SwiperSlide>
-        
-    //   </Swiper>
-    //     )
-    // }
 
     return (
         <PortfolioContext.Provider value={{active, changeActive,clicked, theme, toggleTheme, setClicked}}>

@@ -27,9 +27,11 @@ const authOptions : NextAuthOptions = {
   },
   callbacks: {
     async jwt({ token, user }) {
+      console.log("hi");
       return { ...token, ...user };
     },
     async session({ session, token }) {
+      console.log("hi");
       session.user.id = token.id
       session.user.role = token.role;
       return session;
